@@ -1,0 +1,29 @@
+INCLUDE C:\Irvine\Irvine32.inc
+.386
+.model flat,stdcall
+.stack 4096
+ExitProcess PROTO, dwExitCode:DWORD
+.data
+notReversed byte "This is not reverse string",0
+size_string=($-notReversed)-1
+Reversed byte size_string dup(?)
+.code
+main PROC
+mov ecx,size_string
+mov esi,0
+l1:
+movzx eax,notReversed[esi]
+push eax
+inc esi
+loop l1
+mov ecx,size_string
+mov esi,0
+l2:
+pop eax
+mov Reversed[esi],al
+inc esi
+loop l2
+mov eax,offset Reversed
+INVOKE ExitProcess,0
+main ENDP
+END main

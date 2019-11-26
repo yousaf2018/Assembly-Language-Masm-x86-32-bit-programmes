@@ -1,0 +1,33 @@
+INCLUDE C:\Irvine\Irvine32.inc
+.386
+.model flat,stdcall
+.stack 4096
+ExitProcess PROTO, dwExitCode:DWORD
+.data
+array dword 4 dup(?)
+var byte "Enter number",0
+.code
+main PROC
+mov ecx,4
+mov esi,offset array
+l1:
+mov edx,offset var
+call WriteString
+call Crlf
+call ReadInt
+mov [esi],eax
+add esi,4
+loop l1
+mov ecx,2
+mov esi,offset array
+l2:
+mov eax,[esi]
+add esi,4
+xchg eax,[esi]
+sub esi,4
+mov [esi],eax
+add esi,8
+loop l2
+INVOKE ExitProcess,0
+main ENDP
+END main

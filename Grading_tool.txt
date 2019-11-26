@@ -1,0 +1,370 @@
+INCLUDE C:\Irvine\Irvine32.inc
+.386
+.model flat,stdcall
+.stack 4096
+ExitProcess PROTO, dwExitCode:DWORD
+.data
+english dword ?
+urdu dword ?
+math dword ?
+computer dword ?
+pak dword ?
+Eout byte "Enter your English marks",0
+Uout byte "Enter your urdu marks",0
+Mout byte "Enter your Math marks",0
+Cout byte "Enter Computer marks",0
+Pout byte "Enter Pak study marks",0
+
+Eeout byte "Your English grade",0
+Uuout byte "Your Urdu grade",0
+Mmout byte "Your Math grade",0
+Ccout byte "Your Computer grade",0
+Ppout byte "Your Pak study grade",0
+
+A_grade byte "A",0
+B_grade byte "B",0
+C_grade byte "C",0
+D_grade byte "D",0
+E_grade byte "E",0
+F_grade byte "F",0
+.code
+main PROC
+mov edx,offset Eout
+call WriteString
+call Crlf
+call ReadInt
+mov english,eax
+
+mov edx,offset Uout
+call WriteString
+call Crlf
+call ReadInt
+mov urdu,eax
+
+mov edx,offset Cout
+call WriteString
+call Crlf
+call ReadInt
+mov computer,eax
+
+mov edx,offset Mout
+call WriteString
+call Crlf
+call ReadInt
+mov math,eax
+
+mov edx,offset Pout
+call WriteString
+call Crlf
+call ReadInt
+mov pak,eax
+
+call Cal_Grades
+
+INVOKE ExitProcess,0
+main ENDP
+Cal_Grades PROC
+cmp english,84
+ja l1
+cmp english,74
+ja l2
+cmp english,64
+ja l3
+cmp english,54
+ja l4
+cmp english,44
+ja l5
+jb l6
+l1:
+mov edx,offset Eeout
+call WriteString
+call Crlf
+mov edx,offset A_grade
+call WriteString
+call Crlf
+jmp l7
+l2:
+mov edx,offset Eeout
+call WriteString
+call Crlf
+mov edx,offset B_grade
+call WriteString
+call Crlf
+jmp l7
+l3:
+mov edx,offset Eeout
+call WriteString
+call Crlf
+mov edx,offset C_grade
+call WriteString
+call Crlf
+jmp l7
+l4:
+mov edx,offset Eeout
+call WriteString
+call Crlf
+mov edx,offset D_grade
+call WriteString
+call Crlf
+jmp l7
+l5:
+mov edx,offset Eeout
+call WriteString
+call Crlf
+mov edx,offset E_grade
+call WriteString
+call Crlf
+jmp l7
+l6:
+mov edx,offset Eeout
+call WriteString
+call Crlf
+mov edx,offset F_grade
+call WriteString
+call Crlf
+
+l7:
+
+cmp urdu,84
+ja l8
+cmp urdu,74
+ja l9
+cmp urdu,64
+ja l10
+cmp urdu,54
+ja l11
+cmp urdu,44
+ja l12
+jb l13
+l8:
+mov edx,offset Uuout
+call WriteString
+call Crlf
+mov edx,offset A_grade
+call WriteString
+call Crlf
+jmp l14
+l9:
+mov edx,offset Uuout
+call WriteString
+call Crlf
+mov edx,offset B_grade
+call WriteString
+call Crlf
+jmp l14
+l10:
+mov edx,offset Uuout
+call WriteString
+call Crlf
+mov edx,offset C_grade
+call WriteString
+call Crlf
+jmp l14
+l11:
+mov edx,offset Uuout
+call WriteString
+call Crlf
+mov edx,offset D_grade
+call WriteString
+call Crlf
+jmp l14
+l12:
+mov edx,offset Uuout
+call WriteString
+call Crlf
+mov edx,offset E_grade
+call WriteString
+call Crlf
+jmp l14
+l13:
+mov edx,offset Uuout
+call WriteString
+call Crlf
+mov edx,offset F_grade
+call WriteString
+call Crlf
+
+l14:
+cmp math,84
+ja l15
+cmp math,74
+ja l16
+cmp math,64
+ja l17
+cmp math,54
+ja l18
+cmp math,44
+ja l19
+jb l20
+l15:
+mov edx,offset Mmout
+call WriteString
+call Crlf
+mov edx,offset A_grade
+call WriteString
+call Crlf
+jmp l21
+l16:
+mov edx,offset Mmout
+call WriteString
+call Crlf
+mov edx,offset B_grade
+call WriteString
+call Crlf
+jmp l21
+l17:
+mov edx,offset Mmout
+call WriteString
+call Crlf
+mov edx,offset C_grade
+call WriteString
+call Crlf
+jmp l21
+l18:
+mov edx,offset Mmout
+call WriteString
+call Crlf
+mov edx,offset D_grade
+call WriteString
+call Crlf
+jmp l21
+l19:
+mov edx,offset Mmout
+call WriteString
+call Crlf
+mov edx,offset E_grade
+call WriteString
+call Crlf
+jmp l21
+l20:
+mov edx,offset Mmout
+call WriteString
+call Crlf
+mov edx,offset F_grade
+call WriteString
+call Crlf
+l21:
+
+cmp computer,84
+ja l22
+cmp computer,74
+ja l23
+cmp computer,64
+ja l24
+cmp computer,54
+ja l25
+cmp computer,44
+ja l26
+jb l27
+l22:
+mov edx,offset Ccout
+call WriteString
+call Crlf
+mov edx,offset A_grade
+call WriteString
+call Crlf
+jmp l28
+l23:
+mov edx,offset Ccout
+call WriteString
+call Crlf
+mov edx,offset B_grade
+call WriteString
+call Crlf
+jmp l28
+l24:
+mov edx,offset Ccout
+call WriteString
+call Crlf
+mov edx,offset C_grade
+call WriteString
+call Crlf
+jmp l28
+l25:
+mov edx,offset Ccout
+call WriteString
+call Crlf
+mov edx,offset D_grade
+call WriteString
+call Crlf
+jmp l28
+l26:
+mov edx,offset Ccout
+call WriteString
+call Crlf
+mov edx,offset E_grade
+call WriteString
+call Crlf
+jmp l28
+l27:
+mov edx,offset Uuout
+call WriteString
+call Crlf
+mov edx,offset F_grade
+call WriteString
+call Crlf
+
+l28:
+
+cmp pak,84
+ja l29
+cmp pak,74
+ja l30
+cmp pak,64
+ja l31
+cmp pak,54
+ja l32
+cmp pak,44
+ja l33
+jb l34
+l29:
+mov edx,offset Ppout
+call WriteString
+call Crlf
+mov edx,offset A_grade
+call WriteString
+call Crlf
+jmp l35
+l30:
+mov edx,offset Ppout
+call WriteString
+call Crlf
+mov edx,offset B_grade
+call WriteString
+call Crlf
+jmp l35
+l31:
+mov edx,offset Ppout
+call WriteString
+call Crlf
+mov edx,offset C_grade
+call WriteString
+call Crlf
+jmp l35
+l32:
+mov edx,offset Ppout
+call WriteString
+call Crlf
+mov edx,offset D_grade
+call WriteString
+call Crlf
+jmp l35
+l33:
+mov edx,offset Ppout
+call WriteString
+call Crlf
+mov edx,offset E_grade
+call WriteString
+call Crlf
+jmp l35
+l34:
+mov edx,offset Ppout
+call WriteString
+call Crlf
+mov edx,offset F_grade
+call WriteString
+call Crlf
+l35:
+ret
+Cal_Grades ENDP
+END main
